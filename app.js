@@ -6,6 +6,7 @@ const port = 3000
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/crash', (req, res) => {
+    var info
     console.log(info.example.toUpperCase())
 })
 
