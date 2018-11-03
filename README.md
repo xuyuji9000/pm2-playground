@@ -33,14 +33,22 @@
     ``` bash
     [smtp.gmail.com]:587    username@gmail.com:password
     ```
+    
+4. Setup permissions
 
-4. Restart postfix service:
+    ``` bash
+    chmod 600 /etc/postfix/sasl_passwd
+    chown root:root /etc/postfix/sasl_passwd
+    postmap /etc/postfix/sasl_passwd
+    ```
+
+5. Restart postfix service:
 
     ``` bash
     service postfix start
     ```
 
-5. Test send an email
+6. Test send an email
 
     ``` bash
     echo "Test Mail" | mailx -v -r "AccountEmail@gmail.com" -s "Test Mail 01" anotherAcount@gmail.com
