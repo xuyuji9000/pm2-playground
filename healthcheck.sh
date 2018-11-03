@@ -7,7 +7,7 @@ NODE="$(which node)" # put the absolute path of NODE here
 PM2="$(which pm2)" # put the absolute path of PM2 here
 ERROR_LOG="/var/log/cron"
 SUBJECT="PM2 Recovery $date"
-RECEIVER_EMAIL="karl.yogi.xu@gmail"
+RECEIVER_EMAIL="karl.yogi.xu@gmail.com"
 
 while true; do
     sleep 5
@@ -23,6 +23,6 @@ while true; do
         eval "$NODE $PM2 delete $PM2_CONFIG "
         eval "$NODE $PM2 reload $PM2_CONFIG"
         if [ $? -ne 0 ] ; then echo "pm2 reload failed."; else echo "pm2 reload successful.";fi;
-        tail -100 ${ERROR_LOG} | mailx -s ${SUBJECT} ${RECEIVER_EMAIL}
+        tail -100 ${ERROR_LOG} | mailx -s "${SUBJECT}" ${RECEIVER_EMAIL}
     fi
 done
