@@ -13,3 +13,5 @@
 # Reference
 
 1. [Virtual Hosts on nginx (CSC309)](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
+
+2. [Let less secure apps access your account](https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en&visit_id=636768468433298627-748476569&rd=1)
