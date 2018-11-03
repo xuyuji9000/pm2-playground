@@ -11,7 +11,7 @@
 ## Setup mail server
 
 
-1. Install postfix: `yum install postfix mailx cyrus-sasl cyrus-sasl-plain`
+1. Install postfix: `yum install -y postfix mailx cyrus-sasl cyrus-sasl-plain`
 
 2. To configure postfix to use Gmail as a Mail Relay, append to the bottom of `/etc/postfix/main.cf`
 
