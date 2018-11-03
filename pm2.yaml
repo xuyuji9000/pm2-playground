@@ -1,5 +1,5 @@
 apps:
-  - script   : ./app.js
+  - script   : /root/pm2-playground/app.js
     name     : 'application'
     instances: 2
     exec_mode: cluster
