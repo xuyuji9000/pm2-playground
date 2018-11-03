@@ -56,3 +56,5 @@
 
 3. [Configure Postfix to use Gmail as a Mail Relay](https://www.huuphan.com/2018/04/configure-postfix-to-use-gmail-as-mail.html)
 
+4. [How To Install Nginx on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
+
