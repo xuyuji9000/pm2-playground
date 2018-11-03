@@ -6,6 +6,8 @@
 
 - Crontab config: `* * * * * /root/pm2-playground/healthcheck.sh >> /tmp/crontab.log `
 
+- Get log from the running process: `tail -f /proc/<pid>/fd/1`
+
 
 
 
