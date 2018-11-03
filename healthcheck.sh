@@ -16,7 +16,7 @@ done
 
 if [[ ${RES[0]} != 200 && ${RES[0]} == ${RES[1]} ]]
 then
-    eval "$NODE $PM2 delete all"
-    eval "$NODE $PM2 restart $PM2_CONFIG"
+    eval "$NODE $PM2 delete $PM2_CONFIG "
+    eval "$NODE $PM2 reload $PM2_CONFIG"
     if [ $? -ne 0 ] ; then echo "pm2 reload failed."; else echo "pm2 reload successful.";fi;
 fi
