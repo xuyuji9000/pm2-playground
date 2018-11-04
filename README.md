@@ -17,7 +17,7 @@
 
 2. Verify an email account for receiving alerting email on Mailgun
 
-3. Get the user credential of mailgun
+3. Get the user credential and default mailing domain of mailgun 
 
 # Reference
 
