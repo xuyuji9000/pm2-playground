@@ -7,6 +7,8 @@
 
 - Keep the script running in the background: `nohup ./healthcheck.sh &> /dev/null &`
 
+- Check email sending verbose log: `tail -f /var/log/maillog`
+
 
 ## Setup mail server
 
