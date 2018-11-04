@@ -6,7 +6,7 @@ PM2_CONFIG="./pm2.yaml" # pm2 configuration file absolute path
 NODE="$(which node)" # put the absolute path of NODE here
 PM2="$(which pm2)" # put the absolute path of PM2 here
 ERROR_LOG="/var/log/cron"
-SUBJECT="PM2 Recovery $date"
+SUBJECT="PM2 Recovery $(date)"
 RECEIVER_EMAIL="karl.yogi.xu@gmail.com"
 MAILGUN_CREDENTIAL="your_mailgun_credential"
 
