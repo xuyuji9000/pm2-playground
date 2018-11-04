@@ -8,6 +8,7 @@ PM2="$(which pm2)" # put the absolute path of PM2 here
 ERROR_LOG="/var/log/cron"
 SUBJECT="PM2 Recovery $date"
 RECEIVER_EMAIL="karl.yogi.xu@gmail.com"
+MAILGUN_CREDENTIAL="your_mailgun_credential"
 
 while true; do
     sleep 5
@@ -23,6 +24,14 @@ while true; do
         eval "$NODE $PM2 delete $PM2_CONFIG "
         eval "$NODE $PM2 reload $PM2_CONFIG"
         if [ $? -ne 0 ] ; then echo "pm2 reload failed."; else echo "pm2 reload successful.";fi;
-        tail -100 ${ERROR_LOG} | mailx -s "${SUBJECT}" ${RECEIVER_EMAIL}
+
+        MAIL_CONTENT=$(tail -100 ${ERROR_LOG})
+        # mailx -s "${SUBJECT}" ${RECEIVER_EMAIL}
+        curl -s --user "${MAILGUN_CREDENTIAL}" \
+        https://api.mailgun.net/v3/sandbox3a3a391dab39458091519a381c663cda.mailgun.org/messages \
+        -F from='Mailgun Sandbox <postmaster@sandbox3a3a391dab39458091519a381c663cda.mailgun.org>' \
+        -F to="${RECEIVER_EMAIL}" \
+        -F subject="${SUBJECT}" \
+        -F text="${MAIL_CONTENT}"
     fi
 done
