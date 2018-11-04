@@ -13,7 +13,7 @@
 ## Setup mail server
 
 
-1. Install postfix: `yum install postfix mailx cyrus-sasl cyrus-sasl-plain`
+1. Install postfix: `yum install -y postfix mailx cyrus-sasl cyrus-sasl-plain`
 
 2. To configure postfix to use Gmail as a Mail Relay, append to the bottom of `/etc/postfix/main.cf`
 
@@ -35,14 +35,22 @@
     ``` bash
     [smtp.gmail.com]:587    username@gmail.com:password
     ```
+    
+4. Setup permissions
 
-4. Restart postfix service:
+    ``` bash
+    chmod 600 /etc/postfix/sasl_passwd
+    chown root:root /etc/postfix/sasl_passwd
+    postmap /etc/postfix/sasl_passwd
+    ```
+
+5. Restart postfix service:
 
     ``` bash
     service postfix start
     ```
 
-5. Test send an email
+6. Test send an email
 
     ``` bash
     echo "Test Mail" | mailx -v -r "AccountEmail@gmail.com" -s "Test Mail 01" anotherAcount@gmail.com
@@ -57,4 +65,6 @@
 2. [Let less secure apps access your account](https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en&visit_id=636768468433298627-748476569&rd=1)
 
 3. [Configure Postfix to use Gmail as a Mail Relay](https://www.huuphan.com/2018/04/configure-postfix-to-use-gmail-as-mail.html)
+
+4. [How To Install Nginx on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
 
