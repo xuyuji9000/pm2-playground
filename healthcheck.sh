@@ -9,6 +9,7 @@ ERROR_LOG="/var/log/cron"
 SUBJECT="PM2 Recovery $(date)"
 RECEIVER_EMAIL="karl.yogi.xu@gmail.com"
 MAILGUN_CREDENTIAL="your_mailgun_credential"
+MAILGUN_DOMAIN="your_mailgun_sandbox_domain"
 
 while true; do
     sleep 5
@@ -28,8 +29,8 @@ while true; do
         MAIL_CONTENT=$(tail -100 ${ERROR_LOG})
         # mailx -s "${SUBJECT}" ${RECEIVER_EMAIL}
         curl -s --user "${MAILGUN_CREDENTIAL}" \
-        https://api.mailgun.net/v3/sandbox3a3a391dab39458091519a381c663cda.mailgun.org/messages \
-        -F from='Mailgun Sandbox <postmaster@sandbox3a3a391dab39458091519a381c663cda.mailgun.org>' \
+        "https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages" \
+        -F from='Mailgun Sandbox <postmaster@${MAILGUN_DOMAIN}>' \
         -F to="${RECEIVER_EMAIL}" \
         -F subject="${SUBJECT}" \
         -F text="${MAIL_CONTENT}"
