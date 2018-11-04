@@ -9,6 +9,8 @@
 
 - Check email sending verbose log: `tail -f /var/log/maillog`
 
+- Kill the **healthcheck.sh** process: `ps aux | grep healthcheck.sh | awk  '{print $2}' | xargs kill`
+
 
 ## Setup mail server
 
