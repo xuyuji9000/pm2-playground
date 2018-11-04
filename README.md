@@ -11,54 +11,13 @@
 
 - Kill the **healthcheck.sh** process: `ps aux | grep healthcheck.sh | awk  '{print $2}' | xargs kill`
 
+## Setup Mailgun
 
-## Setup mail server
+1. Create free mailgun account
 
+2. Verify an email account for receiving alerting email on Mailgun
 
-1. Install postfix: `yum install -y postfix mailx cyrus-sasl cyrus-sasl-plain`
-
-2. To configure postfix to use Gmail as a Mail Relay, append to the bottom of `/etc/postfix/main.cf`
-
-    ``` bash
-    #To use smpt gmail with 587 port
-    relayhost = [smtp.gmail.com]:587
-    smtp_use_tls = yes
-    smtp_sasl_auth_enable = yes
-    smtp_sasl_security_options = noanonymous
-    smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
-    smtp_tls_CAfile = /etc/pki/tls/certs/ca-bundle.crt
-    smtp_tls_security_level = encrypt
-    # Location of CA certificates
-    smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt
-    ```
-
-3. Configure Gmail authentication under `/etc/postfix/sasl_passwd`
-
-    ``` bash
-    [smtp.gmail.com]:587    username@gmail.com:password
-    ```
-    
-4. Setup permissions
-
-    ``` bash
-    chmod 600 /etc/postfix/sasl_passwd
-    chown root:root /etc/postfix/sasl_passwd
-    postmap /etc/postfix/sasl_passwd
-    ```
-
-5. Restart postfix service:
-
-    ``` bash
-    service postfix start
-    ```
-
-6. Test send an email
-
-    ``` bash
-    echo "Test Mail" | mailx -v -r "AccountEmail@gmail.com" -s "Test Mail 01" anotherAcount@gmail.com
-    ```
-
-
+3. Get the user credential of mailgun
 
 # Reference
 
