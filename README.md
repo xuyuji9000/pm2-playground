@@ -21,10 +21,10 @@
 
 ## Setup Nginx
 
-    ``` bash
-    yum install -y epel-release
-    yum install -y nginx
-    ```
+``` bash
+yum install -y epel-release
+yum install -y nginx
+```
 
 # Reference
 
