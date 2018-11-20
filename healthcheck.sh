@@ -28,7 +28,7 @@ while true; do
 
         MAIL_CONTENT=$(tail -100 ${ERROR_LOG})
         # mailx -s "${SUBJECT}" ${RECEIVER_EMAIL}
-        curl -s --user "${MAILGUN_CREDENTIAL}" \
+        curl -s --user "api:${MAILGUN_CREDENTIAL}" \
         "https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages" \
         -F from="Mailgun Sandbox <postmaster@${MAILGUN_DOMAIN}>" \
         -F to="${RECEIVER_EMAIL}" \
