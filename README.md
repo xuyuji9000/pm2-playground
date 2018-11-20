@@ -19,6 +19,13 @@
 
 3. Get the user credential and default mailing domain of mailgun 
 
+## Setup Nginx
+
+``` bash
+yum install epel-release
+yum install -y nginx
+```
+
 # Reference
 
 1. [Virtual Hosts on nginx (CSC309)](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
