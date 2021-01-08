@@ -1,5 +1,5 @@
-# pm2-playground
 
-- Build Docker image: `docker build -t pm2-playground .`
 
-- Run container: `docker run -p 3000:3000 pm2-playground`
+- [use pm2 within docker ](./use-within-docker/Readme.md)
+
+- [Upgrade pm2 verion on server](./upgrade-pm2-version-on-server.md)
