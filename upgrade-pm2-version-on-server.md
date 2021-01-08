@@ -22,4 +22,6 @@ This document records the process for upgrade pm2 version on production server.
 
 # Reference
 
-1. [](https://stackoverflow.com/questions/26205065/proper-way-to-update-pm2-after-updating-node-js)
+1. [Proper way to update PM2 after updating Node.js](https://stackoverflow.com/questions/26205065/proper-way-to-update-pm2-after-updating-node-js#answer-46071879)
+
+   > This answer explains how to upgrade pm2
