@@ -4,7 +4,7 @@ This document records the process for upgrade pm2 version on production server.
 1. Upgrade node version
 
     ``` bash
-    nvm instal NEW_NODE_VERSION
+    nvm install NEW_NODE_VERSION
     nvm alias default NEW_NODE_VERSION
     ```
 
